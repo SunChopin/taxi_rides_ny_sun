@@ -1,7 +1,14 @@
-{{ config(materialized='table') }}
+
+
+  create or replace table `dtc-de-356816`.`dbt_xsun`.`dm_monthly_zone_revenue`
+  
+  
+  OPTIONS()
+  as (
+    
 
 with trips_data as (
-    select * from {{ ref('fact_trips') }}
+    select * from `dtc-de-356816`.`dbt_xsun`.`fact_trips`
 )
     select 
     -- Reveneue grouping 
@@ -29,3 +36,5 @@ with trips_data as (
 
     from trips_data
     group by 1,2,3
+  );
+  

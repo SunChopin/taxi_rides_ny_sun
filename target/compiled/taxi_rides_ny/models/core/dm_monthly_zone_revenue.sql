@@ -1,7 +1,7 @@
-{{ config(materialized='table') }}
+
 
 with trips_data as (
-    select * from {{ ref('fact_trips') }}
+    select * from `dtc-de-356816`.`dbt_xsun`.`fact_trips`
 )
     select 
     -- Reveneue grouping 
